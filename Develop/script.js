@@ -1,5 +1,45 @@
 $(function () {
   let currentDate = new Date();
+  // Building out the HTML Content
+  let body = $("body");
+  //
+  let masterContainer = $("<div>");
+  masterContainer.addClass("container-fluid px-5");
+  body.append(masterContainer);
+  //
+  for (let i = 8; i <= 18; i++) {
+    let innerContainer = $("<div>");
+    innerContainer.addClass("row time-block past");
+    innerContainer.attr("id", `hour-${i}`);
+    masterContainer.append(innerContainer);
+    //
+    let innerHeader = $("<div>");
+    innerHeader.addClass("col-2 col-md-1 hour text-center py-3");
+    if (i > 12) {
+      innerHeader.text(`${i - 12}PM`);
+    } else if (i < 12) {
+      innerHeader.text(`${i}AM`);
+    } else {
+      innerHeader.text(`12PM`);
+    }
+    innerContainer.append(innerHeader);
+    //
+    let userTextArea = $("<textarea>");
+    userTextArea.addClass("col-8 col-md-10 description");
+    userTextArea.attr("rows", "3");
+    innerContainer.append(userTextArea);
+    //
+    let userSaveButton = $("<button>");
+    userSaveButton.addClass("btn saveBtn col-2 col-md-1");
+    userSaveButton.attr("aria-label", "save");
+    innerContainer.append(userSaveButton);
+    //
+    let buttonIcon = $("<i>");
+    buttonIcon.addClass("fas fa-save");
+    buttonIcon.attr("aria-hidden", "true");
+    userSaveButton.append(buttonIcon);
+  }
+
   // A listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage.
