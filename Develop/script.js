@@ -7,7 +7,7 @@ $(function () {
   let saveButton = $(".saveBtn");
   saveButton.on("click", function (event) {
     event.preventDefault();
-    let userInput = $(event.target).parent().children("textarea").val();
+    let userInput = $(this).parent().children("textarea").val();
     let clickId = $(this).parent().attr("id");
     localStorage.setItem(clickId, `${userInput}`);
   });
@@ -34,9 +34,7 @@ $(function () {
   //
   for (let i = 8; i <= 18; i++) {
     let textField = $(`[id='hour-${i}']`).children("textarea");
-    console.log(textField);
     let savedText = localStorage.getItem(`hour-${i}`);
-    console.log(savedText);
     if (savedText !== null) {
       textField.text(savedText);
     }
@@ -45,6 +43,7 @@ $(function () {
   // Code to display the current date in the header of the page.
   //
   setInterval(function () {
+    currentDate = new Date();
     let displayDate = $("#currentDay");
     displayDate.text(currentDate);
   }, 1000);
