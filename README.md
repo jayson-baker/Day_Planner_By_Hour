@@ -36,6 +36,8 @@ The following animation demonstrates the application functionality:
 
 ## Link to Live Page
 
+https://jayson-baker.github.io/Day_Planner_By_Hour/
+
 ## Link to Source Code
 
 https://github.com/coding-boot-camp/crispy-octo-meme
